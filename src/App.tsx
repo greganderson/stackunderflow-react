@@ -1,8 +1,8 @@
 const App: React.FC = () => {
   return (
-    <>
-      <h1>Hi</h1>
-    </>
+    <div className="bg-gray-900 min-h-screen text-gray-50">
+      <h1 className="text-2xl">Hello world!</h1>
+    </div>
   );
 };
 
