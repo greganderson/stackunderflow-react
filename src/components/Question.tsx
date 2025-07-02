@@ -1,9 +1,11 @@
-import type { QuestionResponse } from "../types";
+import type { AnswerResponse, QuestionResponse } from "../types";
+import Answer from "./Answer";
+import LikesButton from "./LikesButton";
 
-const Question: React.FC<QuestionResponse> = ({ title, question, topic = "General", likes, user }) => {
+const Question: React.FC<QuestionResponse> = ({ title, question, topic = "General", likes, user, answers }) => {
   return (
-    <div className="flex justify-center mt-2">
-      <div className="bg-gray-800 p-4 rounded w-[75vw]">
+    <div className="flex flex-col items-end justify-center mt-2 w-[75vw] drop-shadow-sm drop-shadow-gray-700">
+      <div className="bg-gray-800 p-4 rounded w-[100%]">
         <p className="text-purple-400">{user}</p>
         <div className="flex justify-between border-b border-purple-400">
           <h2 className="text-2xl font-bold">{title}</h2>
@@ -11,9 +13,12 @@ const Question: React.FC<QuestionResponse> = ({ title, question, topic = "Genera
         </div>
         <div className="flex flex-col gap-2">
           <p className="pt-2">{question}</p>
-          <button className="self-end border border-purple-100 rounded hover:cursor-pointer pr-2 pl-2 hover:bg-purple-950">❤️ {likes}</button>
+          <LikesButton likes={likes} />
         </div>
       </div>
+      {answers.map((answer: AnswerResponse, i: number) => (
+        <Answer key={i} {...answer} />
+      ))}
     </div>
   );
 };

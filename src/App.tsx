@@ -26,7 +26,7 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div>
+    <div className="flex flex-col items-center w-screen">
       {questions.map((question, i) => (
         <Question key={i} {...question} />
       ))}
