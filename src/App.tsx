@@ -27,6 +27,7 @@ const App: React.FC = () => {
 
   return (
     <div className="flex flex-col items-center w-screen">
+      <button className="fixed z-10 right-[5%] bottom-[5%] border-1 rounded-full hover:cursor-pointer w-10 h-10 active:bg-purple-900">+</button>
       {questions.map((question, i) => (
         <Question key={i} {...question} />
       ))}
