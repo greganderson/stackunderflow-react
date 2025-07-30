@@ -16,9 +16,7 @@ const Question: React.FC<QuestionResponse> = ({ title, question, topic = "Genera
           <LikesButton likes={likes} />
         </div>
       </div>
-      {answers.map((answer: AnswerResponse, i: number) => (
-        <Answer key={i} {...answer} />
-      ))}
+      {answers && answers.map((answer: AnswerResponse, i: number) => <Answer key={i} {...answer} />)}
     </div>
   );
 };
